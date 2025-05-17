@@ -1,0 +1,12 @@
+# When id: "2024-01-09-forest-watercolor" and google drive folder path: GDRIVE_PATH
+# image_path: GDRIVE_PATH + "/2024-01-09-forest-watercolor.jpg"
+# thumbnail_name: GDRIVE_PATH + "/2024-01-09-forest-watercolor.thumbnail.jpg"
+images:
+  - id: "2024-01-09-forest-watercolor"
+    date: "2024-01-09"
+    title: "Misty Forest Watercolor"
+    description: "A serene forest scene painted in watercolor style"
+    ai_metadata:
+      style: "watercolor"
+      concepts: ["forest landscape"]
+      keywords: ["trees", "mist", "nature", "serenity"]

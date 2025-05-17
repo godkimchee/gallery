@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<article class="image-detail">
+    <div class="image-container">
+        <img src="{{ page.image_path | relative_url }}" alt="{{ page.title }}">
+    </div>
+    <div class="image-info">
+        <h2>{{ page.title }}</h2>
+        <p>{{ page.description }}</p>
+        <p class="date">{{ page.date | date: "%Y-%m-%d" }}</p>
+        {% if page.ai_metadata %}
+        <div class="ai-metadata">
+            <h3>AI Generation Details</h3>
+            <p>Style: {{ page.ai_metadata.style }}</p>
+            <p>Concepts: {{ page.ai_metadata.concepts | join: ", " }}</p>
+            <p>Keywords: {{ page.ai_metadata.keywords | join: ", " }}</p>
+        </div>
+        {% endif %}
+    </div>
+</article>

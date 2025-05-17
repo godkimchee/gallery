@@ -1,0 +1,17 @@
+---
+layout: default
+title: Home
+---
+<div class="gallery-grid">
+    {% assign sorted_images = site.images | sort: 'date' | reverse %}
+    {% for image in sorted_images %}
+    <div class="gallery-item">
+        <a href="{{ image.url | relative_url }}">
+            <img src="{{ image.thumbnail_path | relative_url }}" alt="{{ image.title }}">
+            <div class="image-caption">
+                <h3>{{ image.title }}</h3>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>

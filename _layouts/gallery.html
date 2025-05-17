@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<div class="gallery-grid">
+    {% for image in site.data.images.images %}
+    <div class="gallery-item">
+        <a href="{{ site.baseurl }}/images/{{ image.id }}">
+            <img src="{{ image.thumbnail_path | relative_url }}" alt="{{ image.title }}">
+            <div class="image-caption">
+                <h3>{{ image.title }}</h3>
+                <p>{{ image.date | date: "%Y-%m-%d" }}</p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>

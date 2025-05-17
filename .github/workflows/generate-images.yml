@@ -1,0 +1,36 @@
+name: Generate AI Images
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 매일 UTC 00:00에 실행
+  workflow_dispatch:      # 수동 실행 가능
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install google-cloud-aiplatform pillow pyyaml python-dotenv
+
+      - name: Generate AI Image
+        env:
+          GOOGLE_CLOUD_CREDENTIALS: ${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}
+          GOOGLE_DRIVE_CREDENTIALS: ${{ secrets.GOOGLE_DRIVE_CREDENTIALS }}
+        run: python scripts/generate_ai_image.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'actions@github.com'
+          git add _data/images.yml assets/images/* assets/thumbnails/*
+          git commit -m "Add new AI generated image [skip ci]"
+          git push

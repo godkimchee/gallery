@@ -1,0 +1,58 @@
+title: Simple Image Gallery
+description: A minimalist gallery for showcasing images
+baseurl: <%= ENV['SITE_BASEURL'] %>
+url: <%= ENV['SITE_URL'] %>
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-gallery-generator
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Data files configuration
+data_dir: _data
+
+# Collections
+collections:
+  images:
+    output: true
+    permalink: /images/:name/
+
+defaults:
+  - scope:
+      path: "images"
+      type: "pages"
+    values:
+      layout: "image"
+
+# Image processing
+image_processing:
+  resize_to_limit: [1200, 1200]
+  thumbnail_size: [300, 300]
+
+# SEO settings
+twitter:
+  username: your-twitter-handle
+  card: summary_large_image
+
+social:
+  name: Your Name
+  links:
+    - https://github.com/your-username
+
+# Gallery settings
+gallery:
+  dir: galleries
+  defaults:
+    thumbnail_size:
+      x: 300
+      y: 300
+    galleries:
+      - images:
+          source: "_data/images.yml"
+          layout: "gallery"
+          thumbnail_size:
+            x: 300
+            y: 300

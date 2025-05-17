@@ -1,0 +1,16 @@
+IMAGE_CONCEPT:
+  - "cute baby"
+  - "forest landscape"
+  - "ocean waves"
+  - "mountain peak"
+  - "urban street"
+  - "blooming flower"
+
+IMAGE_STYLE:
+  - "watercolor"
+  - "oil painting"
+  - "pastel drawing"
+  - "digital art"
+  - "pencil sketch"
+  - "abstract"
+  - "minimalist"
